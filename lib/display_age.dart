@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'mood.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyAge extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
     String name = "Garima";
     return MaterialApp(
       home: Display(),
+      routes: <String , WidgetBuilder>
+      {
+        "/a": (BuildContext context) => MyMood(),
+      },
     );
   }
 }
@@ -71,7 +75,10 @@ class _State extends State<Display> {
                             ),
                           ),
                           color: Colors.white,
-                          onPressed: (){},
+                          onPressed: ()
+                          {
+                            Navigator.of(context).pushNamed("/a");
+                          },
                         ),
                       ),
                     ),

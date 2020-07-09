@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'options.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class MyMood extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Mood(),
+      routes: <String,WidgetBuilder>
+      {
+        "/b": (BuildContext context) => MyOptions(),
+      },
     );
   }
 }
@@ -21,6 +25,7 @@ class Mood extends StatefulWidget {
 class _State extends State<Mood> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -105,7 +110,9 @@ class _State extends State<Mood> {
                           minWidth: 180.0,
                           height: 50.0,
                           child: RaisedButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.of(context).pushNamed("/b");
+                            },
                             color: Colors.blueGrey[900],
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomRight: Radius.circular(10.0))),
                             child: Text("Sad",
