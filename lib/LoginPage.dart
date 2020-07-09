@@ -1,39 +1,13 @@
+import 'package:asdguide/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:asdguide/LoginPage.dart';
-import 'dart:async';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new SignUp(),
-    );
-  }
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
-  DateTime selectedDate = DateTime.now();
-
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-      });
-  }
-
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +15,10 @@ class _SignUpState extends State<SignUp> {
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.black, Colors.blue[900], Colors.black]),
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.black, Colors.blue[900], Colors.black],
+            )
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +33,7 @@ class _SignUpState extends State<SignUp> {
                     primarySwatch: Colors.teal,
                     inputDecorationTheme: InputDecorationTheme(
                       labelStyle:
-                          TextStyle(color: Colors.white, fontSize: 20.0),
+                      TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
                   ),
                   child: Container(
@@ -66,19 +41,6 @@ class _SignUpState extends State<SignUp> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        TextField(
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            fillColor: Colors.lightBlueAccent,
-                            labelText: 'Name',
-                            labelStyle: TextStyle(
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ),
                         TextField(
                           style: TextStyle(
                             color: Colors.white,
@@ -104,32 +66,6 @@ class _SignUpState extends State<SignUp> {
                           keyboardType: TextInputType.text,
                           obscureText: true,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Enter Date of Birth \nof your child : ',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                            Text(
-                              "${selectedDate.toLocal()}".split(' ')[0],
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 15.0),
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.calendar_today),
-                              color: Colors.red[800],
-                              tooltip: 'Select Date of Birth',
-                              onPressed: () => _selectDate(context),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                        ),
                         MaterialButton(
                           color: Colors.teal,
                           height: 50.0,
@@ -140,9 +76,9 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {},
                           child: Padding(
                             padding:
-                                const EdgeInsets.only(left: 15.0, right: 15.0),
+                            const EdgeInsets.only(left: 15.0, right: 15.0),
                             child: Text(
-                              "SignUp",
+                              "Login",
                               style: TextStyle(fontSize: 20.0),
                             ),
                           ),
@@ -152,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              'Have we met before?',
+                              'New User?',
                               style: TextStyle(
                                 color: Colors.white70,
                               ),
@@ -160,7 +96,7 @@ class _SignUpState extends State<SignUp> {
                             FlatButton(
                               padding: EdgeInsets.all(0.0),
                               child: Text(
-                                'Log in',
+                                'Sign Up',
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
@@ -169,7 +105,7 @@ class _SignUpState extends State<SignUp> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => LoginPage()));
+                                        builder: (context) => SignUp()));
                               },
                             ),
                           ],
