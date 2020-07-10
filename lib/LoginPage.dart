@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.black, Colors.blue[900], Colors.black],
+              colors: [Colors.black, Colors.blue[700], Colors.black],
             )
           ),
           child: Column(
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                           obscureText: true,
                         ),
                         MaterialButton(
-                          color: Colors.teal,
+                          color: Colors.teal[300],
                           height: 50.0,
                           textColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -87,7 +87,11 @@ class _LoginPageState extends State<LoginPage> {
                             const EdgeInsets.only(left: 15.0, right: 15.0),
                             child: Text(
                               "Login",
-                              style: TextStyle(fontSize: 20.0),
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                fontFamily: 'Forum',
+                                fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                           splashColor: Colors.red,
