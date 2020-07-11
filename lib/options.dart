@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -37,60 +38,38 @@ class _OptionsState extends State<Options> {
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    "Dont be sad kiddo! ",
-                    style: TextStyle(
-                      fontFamily: 'BreeSerif',
-                      color: Colors.white,
-                      fontSize: 25.0,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 90.0,
-              top: 90.0,
-              child: Image(
-                height: 180.0,
-                image: AssetImage('images/logo_options.png'),
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 30.0,right: 30.0, top: 40.0),
-                  child: Text("We have some exciting things for you..",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'ZillaSlab',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20.0,),
-                Padding(
-                  padding: const EdgeInsets.only(right: 30.0),
-                  child: Text("You can select any of these",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'ZillaSlab',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: 300.0,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
+                    Text(
+                      "Dont be sad kiddo! ",
+                      style: TextStyle(
+                        fontFamily: 'BreeSerif',
+                        color: Colors.white,
+                        fontSize: 25.0,
+                      ),
+                    ),
+                    Image(
+                      height: 180.0,
+                      image: AssetImage('images/logo_options.png'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text("We have some exciting things for you..",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'ZillaSlab',
+                          fontSize: 20.0,
+                        ),
+                      ),
+                    ),
+                    Text("You can select any of these",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'ZillaSlab',
+                        fontSize: 20.0,
+                      ),
+                    ),
                     ButtonTheme(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -111,7 +90,6 @@ class _OptionsState extends State<Options> {
                         onPressed: (){},
                       ),
                     ),
-                    SizedBox(height: 10.0,),
                     ButtonTheme(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -132,7 +110,6 @@ class _OptionsState extends State<Options> {
                         onPressed: (){},
                       ),
                     ),
-                    SizedBox(height: 10.0,),
                     ButtonTheme(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
