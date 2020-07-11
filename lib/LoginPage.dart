@@ -1,6 +1,7 @@
 import 'package:asdguide/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:asdguide/display_age.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.black, Colors.blue[900], Colors.black],
+              colors: [Colors.black, Colors.blue[700], Colors.black],
             )
           ),
           child: Column(
@@ -67,19 +68,30 @@ class _LoginPageState extends State<LoginPage> {
                           obscureText: true,
                         ),
                         MaterialButton(
-                          color: Colors.teal,
+                          color: Colors.teal[300],
                           height: 50.0,
                           textColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                               side: BorderSide(color: Colors.black)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Display(),
+                              ),
+                            );
+                          },
                           child: Padding(
                             padding:
                             const EdgeInsets.only(left: 15.0, right: 15.0),
                             child: Text(
                               "Login",
-                              style: TextStyle(fontSize: 20.0),
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                fontFamily: 'Forum',
+                                fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                           splashColor: Colors.red,

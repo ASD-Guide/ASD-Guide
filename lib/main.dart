@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:asdguide/LoginPage.dart';
+import 'package:asdguide/display_age.dart';
 import 'dart:async';
 
 void main() => runApp(MyApp());
@@ -43,7 +44,7 @@ class _SignUpState extends State<SignUp> {
             gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
-                colors: [Colors.black, Colors.blue[900], Colors.black]),
+                colors: [Colors.black, Colors.blue[700], Colors.black]),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +106,7 @@ class _SignUpState extends State<SignUp> {
                           obscureText: true,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
                               'Enter Date of Birth \nof your child : ',
@@ -115,13 +116,13 @@ class _SignUpState extends State<SignUp> {
                               ),
                             ),
                             Text(
-                              "${selectedDate.toLocal()}".split(' ')[0],
+                              "   "+"${selectedDate.toLocal()}".split(' ')[0],
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 15.0),
+                                  color: Colors.white, fontSize: 18.0),
                             ),
                             IconButton(
                               icon: Icon(Icons.calendar_today),
-                              color: Colors.red[800],
+                              color: Colors.white60,
                               tooltip: 'Select Date of Birth',
                               onPressed: () => _selectDate(context),
                             ),
@@ -131,19 +132,30 @@ class _SignUpState extends State<SignUp> {
                           padding: const EdgeInsets.only(top: 15.0),
                         ),
                         MaterialButton(
-                          color: Colors.teal,
+                          color: Colors.teal[300],
                           height: 50.0,
                           textColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                               side: BorderSide(color: Colors.black)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Display(),
+                              ),
+                            );
+                          },
                           child: Padding(
                             padding:
                                 const EdgeInsets.only(left: 15.0, right: 15.0),
                             child: Text(
-                              "SignUp",
-                              style: TextStyle(fontSize: 20.0),
+                              "Sign Up",
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontFamily: 'Forum',
+                                fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                           splashColor: Colors.red,
@@ -167,9 +179,11 @@ class _SignUpState extends State<SignUp> {
                               ),
                               onPressed: () {
                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginPage()));
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPage(),
+                                  ),
+                                );
                               },
                             ),
                           ],

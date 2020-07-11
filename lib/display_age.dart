@@ -11,11 +11,7 @@ class MyAge extends StatelessWidget {
 
     String name = "Garima";
     return MaterialApp(
-      home: Display(),
-      routes: <String , WidgetBuilder>
-      {
-        "/a": (BuildContext context) => MyMood(),
-      },
+      home: Display()
     );
   }
 }
@@ -40,7 +36,7 @@ class _State extends State<Display> {
                 height:  MediaQuery.of(context).size.height* 0.6,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.lightBlue[900], Colors.black],
+                    colors: [Colors.blue[700], Colors.black],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -71,13 +67,18 @@ class _State extends State<Display> {
                             style: TextStyle(
                               fontFamily: 'Forum',
                               fontSize: 20.0,
-                              color: Colors.lightBlue[800],
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold
                             ),
                           ),
                           color: Colors.white,
-                          onPressed: ()
-                          {
-                            Navigator.of(context).pushNamed("/a");
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MyMood(),
+                              ),
+                            );
                           },
                         ),
                       ),
@@ -95,7 +96,7 @@ class _State extends State<Display> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   gradient: LinearGradient(
-                    colors: [Colors.lightBlue[900],Colors.black],
+                    colors: [Colors.blue[700],Colors.black],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
 
